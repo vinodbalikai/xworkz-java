@@ -18,10 +18,31 @@ public class EmployeeExecuter {
         employees.add(new EmployeeDto(104, "Sneha", 26, 48000, "IT", "Female"));
         employees.add(new EmployeeDto(105, "Kiran", 30, 60000, "Sales", "Male"));
         employees.add(new EmployeeDto(106, "Anjali", 27, 52000, "HR", "Female"));
-        employees.add(new EmployeeDto(110, "Meena", 35, 45000, "Sales", "Female"));
         employees.add(new EmployeeDto(107, "Ravi", 35, 75000, "Finance", "Male"));
         employees.add(new EmployeeDto(108, "Pooja", 29, 68000, "Marketing", "Female"));
         employees.add(new EmployeeDto(109, "Vijay", 31, 72000, "IT", "Male"));
+        employees.add(new EmployeeDto(110, "Meena", 35, 45000, "Sales", "Female"));
+        employees.add(new EmployeeDto(111, "Arun", 23, 38000, "IT", "Male"));
+        employees.add(new EmployeeDto(112, "Divya", 25, 51000, "IT", "Female"));
+        employees.add(new EmployeeDto(113, "Nikhil", 29, 65000, "Finance", "Male"));
+        employees.add(new EmployeeDto(114, "Shweta", 32, 70000, "Finance", "Female"));
+        employees.add(new EmployeeDto(115, "Manoj", 27, 47000, "HR", "Male"));
+        employees.add(new EmployeeDto(116, "Kavya", 30, 56000, "HR", "Female"));
+        employees.add(new EmployeeDto(117, "Rakesh", 34, 62000, "Sales", "Male"));
+        employees.add(new EmployeeDto(118, "Neha", 26, 49000, "Sales", "Female"));
+        employees.add(new EmployeeDto(119, "Ajay", 33, 78000, "Marketing", "Male"));
+        employees.add(new EmployeeDto(120, "Asha", 28, 59000, "Marketing", "Female"));
+        employees.add(new EmployeeDto(121, "Suresh", 40, 90000, "IT", "Male"));
+        employees.add(new EmployeeDto(122, "Lakshmi", 37, 85000, "Finance", "Female"));
+        employees.add(new EmployeeDto(123, "Harish", 24, 36000, "Sales", "Male"));
+        employees.add(new EmployeeDto(124, "Nandini", 31, 61000, "HR", "Female"));
+        employees.add(new EmployeeDto(125, "Santosh", 29, 54000, "IT", "Male"));
+        employees.add(new EmployeeDto(126, "Bhavana", 27, 53000, "Marketing", "Female"));
+        employees.add(new EmployeeDto(127, "Deepak", 36, 81000, "Finance", "Male"));
+        employees.add(new EmployeeDto(128, "Swathi", 33, 67000, "Sales", "Female"));
+        employees.add(new EmployeeDto(129, "Ganesh", 38, 88000, "Marketing", "Male"));
+        employees.add(new EmployeeDto(130, "Rekha", 34, 64000, "IT", "Female"));
+
 
         System.out.println("----------------------------------");
         System.out.println("Employees based on their department");
@@ -82,5 +103,9 @@ public class EmployeeExecuter {
         System.out.println("Elder Employee using Collect max");
         elder=  employees.stream().collect(Collectors.maxBy((o1,o2)->o1.getAge()-o2.getAge())).get();
         System.out.println(elder);
+        System.out.println("----------------------------------");
+        System.out.println("Average Salary of both Male and Female in Oragnization");
+        Map<String,Double> map= employees.stream().collect(Collectors.groupingBy(w->w.getGender(),Collectors.averagingDouble(e->e.getSalary())));
+        map.forEach((a,b)-> System.out.println(a+": Average salary is "+b));
          }
     }
